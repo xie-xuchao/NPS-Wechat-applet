@@ -1,0 +1,18 @@
+<view class="page">
+    <view class="page_title">隧道列表<van-button bind:click="onAddClient" class="addbutton" icon="plus" size="small" type="primary">添加隧道</van-button>
+    </view>
+    <view class="tip">下拉刷新，单击行进行操作，向右滑动查看更多</view>
+    <table bind:rowClick="onRowClick" border="{{border}}" data="{{tunnelList}}" headerRowClassName="table_header" headers="{{tableHeader}}" stripe="{{stripe}}"></table>
+    <van-popup bind:close="onDialogClose" customStyle="height: 50%;width:80%;" position="center" show="{{showFunctionDialog}}">
+        <view class="sub_title">选项</view>
+        <van-toast id="van-toast"></van-toast>
+        <van-dialog id="van-dialog"></van-dialog>
+        <view class="btnlist">
+            <van-button plain bind:click="onBtnEdit" customStyle="width: 100px;margin-top: 10px;" size="normal" type="primary">编辑</van-button>
+            <van-button plain bind:click="onBtnStart" customStyle="width: 100px;margin-top: 10px;" size="normal" type="primary">启用</van-button>
+            <van-button plain bind:click="onBtnPause" customStyle="width: 100px;margin-top: 10px;" size="normal" type="danger">暂停</van-button>
+            <van-button plain bind:click="onBtnDelete" customStyle="width: 100px;margin-top: 10px;" size="normal" type="danger">删除</van-button>
+            
+        </view>
+    </van-popup>
+</view>

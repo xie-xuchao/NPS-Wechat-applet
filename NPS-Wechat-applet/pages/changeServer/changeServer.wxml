@@ -1,0 +1,53 @@
+<!--pages/changeServer/changeServer.wxml-->
+<view class="page">
+<text>\n</text>
+<view class="itemView">自定义服务器地址：
+    <input class="input" name="serveraddr"  placeholder="https服务器地址加端口" 
+    bindinput="serveraddrInput"/>
+  </view>
+  <text>\n</text>
+  <view class="btn">
+  <button bindtap="ok1" class="btn" size>确定</button>
+</view>
+
+<!-- <text>\n</text> -->
+<!-- <web-view src="https://ddns.cloudslave.cn:18006/"></web-view> -->
+<text>注：自定义服务器地址必须为https地址，且需要联系作者添加合法域名校验</text>
+<text>\n</text>
+
+<view>请选择服务器：</view>
+<view class='select_box'>
+ <view class='select' catchtap='selectTap'>
+  <text class='select_text'>{{selectData[index]}}</text>
+ </view>
+ <view class='option_box' style='height:{{show?(selectData.length>5?500:selectData.length*100):0}}rpx;'>
+  <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+ </view>
+</view>
+
+<view class="btn">
+  <button bindtap="ok" class="btnChange" size>切换</button>
+  <button bindtap="reg" class="btnReg" size>注册</button>
+</view>
+  <van-popup bind:close="onDialogClose" customStyle="height: 40%;width:90%;" position="center" show="{{showFunctionDialog}}">
+        <view class="sub_title">注册</view>
+        <van-toast id="van-toast"></van-toast>
+        <van-dialog id="van-dialog"></van-dialog>
+        <view class="btnlist">
+          <form catchsubmit="formSubmit">
+            <van-cell-group>
+            <van-field bind:change="username_input" label="账号:" name="username" placeholder="请输入账号" titleWidth="40px" value="{{username}}"></van-field>
+             <van-field bind:change="password_input" label="密码:" name="password" placeholder="请输入密码" titleWidth="40px" value="{{password}}"></van-field>
+             </van-cell-group>
+             <text>\n</text>
+             <view class="btn">
+               <van-button customStyle="width: 80px;right:30px;" formType="submit" size="normal" type="primary">确定</van-button>
+               <van-button bind:click="onRegCancel" customStyle="width: 80px;left:30px;" size="normal" type="danger">取消</van-button>
+            </view>
+          </form>
+        </view>
+    </van-popup>
+  
+<view class="txt">当前使用的服务器地址为：{{ttt}}</view>
+<view class="txt">切换后NPS服务器地址为：{{serverUrl}}</view>
+</view>

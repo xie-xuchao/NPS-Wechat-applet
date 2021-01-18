@@ -1,0 +1,105 @@
+page{
+  background: #f3f7f7;
+ }
+ .select_box{
+  background: #fff;
+  width: 100%;
+  height: 300rpx;
+  margin: 30rpx auto;
+  position: relative;
+ }
+ .select{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100rpx;
+  border:1px solid #efefef;
+  border-radius: 8rpx;
+  font-size: 3px solid;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+ }
+ .select_text{
+  font-size: 3px solid;
+ }
+ .select_img{
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  transition:transform 0.3s;
+ }
+ .option_box{
+  position: absolute;
+  top: 45rpx;
+  width: 100%;
+  border:1px solid #efefef;
+  box-sizing: border-box;
+  height: 50rpx;
+  overflow-y: scroll;
+  border-top: 0;
+  background: #fff;
+  transition: height 0.3s;
+ }
+ .option{
+  display: flex;
+  line-height: 40rpx;
+  font-size: 40rpx;
+  border-bottom: 3px solid #efefef;
+  padding: 10rpx;
+ }
+.btn {
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnChange,.bthnReg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btnChange{
+  float:left;
+}
+.bthnReg{
+  float:right
+}
+.txt {
+  margin-top: 20px;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+.input .itemView{
+  margin: 0 auto;
+  height: 30px;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: white;
+  border-color: black;
+  border: 3rpx solid;
+  border-radius:10rpx 0rpx 0rpx 10rpx;
+}
+
+
+.tip {
+  margin-left: 15px;
+  font-size: 15px;
+  color: #a9a9a9;
+}
+
+.sub_title {
+  margin-top: 10px;
+  font-size: 20px;
+  color: rgba(69,90,100,.6);
+  height: 40px;
+  text-align: center;
+}
+
+.btnlist {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

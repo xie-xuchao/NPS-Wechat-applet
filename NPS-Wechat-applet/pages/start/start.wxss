@@ -1,0 +1,19 @@
+.image,page {
+    height: 100%;
+}
+
+.image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+.txt {
+    text-align: center;
+}

@@ -1,0 +1,22 @@
+<van-popup round bind:click-overlay="onClickOverlay" bind:close="onClose" class="van-share-sheet" closeOnClickOverlay="{{closeOnClickOverlay}}" duration="{{duration}}" overlay="{{overlay}}" overlayStyle="{{overlayStyle}}" position="bottom" safeAreaInsetBottom="{{safeAreaInsetBottom}}" show="{{show}}" zIndex="{{zIndex}}">
+    <view class="van-share-sheet__header">
+        <view class="van-share-sheet__title">
+            <slot name="title"></slot>
+        </view>
+        <view class="van-share-sheet__title" wx:if="{{title}}">{{title}}</view>
+        <view class="van-share-sheet__description">
+            <slot name="description"></slot>
+        </view>
+        <view class="van-share-sheet__description" wx:if="{{description}}">
+      {{description}}
+    </view>
+    </view>
+    <block wx:if="{{computed.isMulti(options)}}">
+        <options bind:select="onSelect" options="{{item}}" showBorder="{{index!==0}}" wx:for="{{options}}" wx:key="index"></options>
+    </block>
+    <options bind:select="onSelect" options="{{options}}" wx:else></options>
+    <button bindtap="onCancel" class="van-share-sheet__cancel" type="button">
+    {{cancelText}}
+  </button>
+</van-popup>
+<wxs module="computed" src="index.wxs" />

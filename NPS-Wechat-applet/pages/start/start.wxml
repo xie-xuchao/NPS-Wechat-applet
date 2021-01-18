@@ -1,0 +1,6 @@
+<view class="image">
+    <van-transition name="fade" show="{{show}}">
+        <image class="logo" src="./../../images/logo.png"></image>
+        <view class="txt">加载中...</view>
+    </van-transition>
+</view>

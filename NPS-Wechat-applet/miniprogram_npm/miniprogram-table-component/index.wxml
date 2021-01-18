@@ -1,0 +1,15 @@
+<scroll-view class="table table-border" scrollX="true" style="width:100%;">
+    <view class="thead {{border?'thead-border':''}} header-row-class-name" style="width:{{scrolWidth}}rpx;">
+        <view class="td" style="width:{{item.width}}rpx;" wx:for="{{headers}}" wx:key="*this">
+      {{item.label}}
+      </view>
+    </view>
+    <scroll-view class="tbody" scrollY="true" style="width:{{scrolWidth}}rpx; height:{{height?height:'auto'}};">
+        <view class="tbody-tr {{stripe?'tbody-tr-stripe':''}} {{border?'tbody-tr-border':''}} row-class-name" wx:if="{{data.length>0}}" wx:for="{{data}}" wx:for-index="idx" wx:for-item="it" wx:key="*this">
+            <view bindtap="onRowClick" class="td cell-class-name" data-column="{{idx+1}}" data-it="{{it}}" data-row="{{index}}" style="width:{{headers[index].width}}rpx;color:{{headers[index].color}};" wx:for="{{headers}}" wx:for-item="head" wx:key="*this">     
+          {{it[ head['prop'] ]}}
+          </view>
+        </view>
+        <view class="no-data" wx:if="{{data.length===0}}">{{msg}}</view>
+    </scroll-view>
+</scroll-view>

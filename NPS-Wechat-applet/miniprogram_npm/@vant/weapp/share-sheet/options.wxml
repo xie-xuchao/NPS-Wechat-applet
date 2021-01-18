@@ -1,0 +1,13 @@
+<view class="{{utils.bem( 'share-sheet__options',{border:showBorder} )}}">
+    <view bindtap="onSelect" class="van-share-sheet__option" data-index="{{index}}" wx:for="{{options}}" wx:key="index">
+        <button class="van-share-sheet__button" openType="{{item.openType}}">
+            <image class="van-share-sheet__icon" src="{{computed.getIconURL(item.icon)}}"></image>
+        </button>
+        <view class="van-share-sheet__name" wx:if="{{item.name}}">{{item.name}}</view>
+        <view class="van-share-sheet__option-description" wx:if="{{item.description}}">
+      {{item.description}}
+    </view>
+    </view>
+</view>
+<wxs module="utils" src="../wxs/utils.wxs" />
+<wxs module="computed" src="options.wxs" />

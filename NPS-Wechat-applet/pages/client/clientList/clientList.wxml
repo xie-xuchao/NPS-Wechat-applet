@@ -1,0 +1,136 @@
+<wxs module="tt">
+    var tt = "test";
+    module.exports ={
+        tt: function(n){
+            return n;
+        }
+    }
+</wxs>
+<wxs module="changefun">
+        var size = "",index="",dou="",sizeStr="";
+        module.exports = {
+            changeunit: function(n){
+                
+                if (n < 0.1 * 1024) {
+                  size = n.toFixed(2) + "B";
+                } else if (n < 0.1 * 1024 * 1024) {
+                     size = (n / 1024).toFixed(2) + "KB";
+                } else if (n < 0.1 * 1024 * 1024 * 1024) {
+                    size = (n / (1024 * 1024)).toFixed(2) + "MB";
+                } else {
+                size = (n / (1024 * 1024 * 1024)).toFixed(2) + "GB";
+                }
+    
+            // sizeStr = size + "";
+            // index = sizeStr.indexOf(".");
+            // dou = sizeStr.substr(index + 1, 2);
+            // if (dou == "00") {
+            //     return sizeStr.substring(0, index) + sizeStr.substr(index + 3, 2);
+            // }
+            return size;
+        }
+     }
+    </wxs>
+<view bindtap="clickPage" class="page">
+    <view class="page_title">客户端列表</view>
+    <view wx:if="{{notice.show}}">
+        <van-notice-bar background="{{notice.background}}" color="{{notice.color}}" delay="{{notice.delay}}" leftIcon="{{notice.icon}}" mode="{{notice.mode}}" scrollable="{{notice.scrollable}}" speed="{{notice.speed}}" text="{{notice.text}}" wrapable="{{notice.wrapable}}"></van-notice-bar>
+    </view>
+    <view wx:if="{{isAdmin}}">
+        <van-search showAction bind:change="onChange" inputAlign="center" placeholder="请输入搜索关键词" value="{{value}}"></van-search>
+    </view>
+    <van-swipe-cell asyncClose bind:close="onCellClose" bind:open="onCellOpen" data-index="{{index}}" id="swipe-cell{{index}}" name="{{index}}" rightWidth="120" wx:for="{{clientsList}}" wx:key="Id">
+        <van-cell center="true" data-index="{{index}}" isLink="true" size="large" url="../../tunnel/tunnelList/tunnelList?detail={{item.Id}}" useLabelSlot="true">
+            <view slot="icon" wx:if="{{item.IsConnect==true}}">
+                <image class="device_icon" mode="aspectFit" src="../../../images/device_online.png"></image>
+            </view>
+            <view slot="icon" wx:else>
+                <image class="device_icon" mode="aspectFit" src="../../../images/device_offline.png"></image>
+            </view>
+            <view class="mytitle" slot="title">密钥：{{item.VerifyKey}}</view>
+            <!-- <view class="mytitle" slot="title">用户/密码：{{item.WebUserName}}/{{item.WebPassword}}</view> -->
+            <!-- <view class="mytitle" slot="title">用户：{{item.WebUserName}}</view> -->
+            <view class="mylab" slot="label">IP：{{item.Addr}}</view>
+            <view class="mylab" slot="label" wx:if="{{item.Status}}">状态：启用</view>
+            <view class="mylab" slot="label" wx:else>状态：停止</view>
+            <view class="mylab" slot="label" >网速：{{changefun.changeunit(item.Rate.NowRate)}}/S</view>
+        </van-cell>
+        <view slot="right">
+            <view bindtap="onEditClick" class="btnEdit" wx:if="{{isAdmin}}">编辑</view>
+            <view bindtap="onEditClick" class="btnEdit1" wx:else>编辑</view>
+            <view bindtap="onStopClick" class="btnChange" wx:if="{{item.Status && isAdmin}}">停止</view>
+            <view bindtap="onStartClick" class="btnChange" wx:if="{{isAdmin && item.Status == 0 }}">启用</view>
+            <view bindtap="onDeleteClick" class="btnDelete" wx:if="{{isAdmin}}">删除</view>
+        </view>
+    </van-swipe-cell>
+    <van-dialog id="van-dialog"></van-dialog>
+    <van-toast id="van-toast"></van-toast>
+    <view wx:if="{{!isAdmin}}">
+        <van-divider contentPosition="center">详细信息</van-divider>
+        <view class="detail">
+            <view class="title">客户端版本:</view>
+            <view class="text">{{clientsList[0].Version}}</view>
+        </view>
+        <view class="detail">
+            <view class="title">备注:</view>
+            <view class="text">{{clientsList[0].Remark}}</view>
+        </view>
+        <view class="detail">
+            <view class="title">Web登陆用户名:</view>
+            <view class="text">{{clientsList[0].WebUserName}}</view>
+        </view>
+        <view class="detail">
+            <view class="title">Web登陆密码:</view>
+            <view class="text">{{clientsList[0].WebPassword}}</view>
+        </view>
+        <view class="detail">
+            <view class="title">唯一验证密钥:</view>
+            <view class="text">{{clientsList[0].VerifyKey}}</view>
+        </view>
+        <!-- <view class="detail">
+            <view class="title">最大隧道数:</view>
+            <view class="text">{{clientsList[0].MaxTunnelNum}}</view>
+        </view> -->
+        <view class="detail">
+            <view class="title">Basic 认证用户名:</view>
+            <view class="text">{{clientsList[0].Cnf.U}}</view>
+        </view>
+        <view class="detail">
+            <view class="title">Basic 认证密码:</view>
+            <view class="text">{{clientsList[0].Cnf.P}}</view>
+        </view>
+        <!-- <view class="detail">
+            <view class="title">最大连接数:</view>
+            <view class="text">{{clientsList[0].MaxConn}}</view>
+        </view> -->
+        <view class="detail">
+            <view class="title">当前连接数:</view>
+            <view class="text">{{clientsList[0].NowConn}}</view>
+        </view>
+        <view class="detail">
+            <view class="title">流量限制:</view>
+            <view class="text">{{clientsList[0].RateLimit}}m</view>
+        </view>
+        <view class="detail">
+            <view class="title">带宽限制:</view>
+            <view class="text">{{clientsList[0].Flow.FlowLimit}}kb/s</view>
+        </view>
+        <view class="detail">
+            <view class="title">当前网速:</view>
+            <view class="text"> {{changefun.changeunit(clientsList[0].Rate.NowRate)}}/S</view>
+        </view>
+        <!-- {{clientsList[0].Rate.NowRate / 1024 /8}} -->
+        <view class="detail">
+            <view class="title">通过配置文件连接:</view>
+            <view class="text">{{clientsList[0].ConfigConnAllow}}</view>
+        </view>
+        <view class="detail">
+            <view class="title">压缩:</view>
+            <view class="text">{{clientsList[0].Cnf.Compress}}</view>
+        </view>
+        <view class="detail">
+            <view class="title">加密:</view>
+            <view class="text">{{clientsList[0].Cnf.Crypt}}</view>
+        </view>
+    </view>
+</view>

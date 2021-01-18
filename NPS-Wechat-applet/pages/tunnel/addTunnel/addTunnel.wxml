@@ -1,0 +1,27 @@
+<view class="detail_page_title">添加隧道</view>
+<van-toast id="van"></van-toast>
+<form catchsubmit="formSubmit">
+    <van-cell-group>
+        <van-field readonly label="客户端 ID:" name="client_id" placeholder="请输入客户端 ID" titleWidth="120px" value="{{client_id}}"></van-field>
+        <van-cell clickable bind:click="onModeClick" placeholder="请选择模式" title="模式:" titleWidth="120px" value="{{mode}}" valueClass="van_cell_value">
+            <input disabled="true" id="type" name="type" type="text" value="{{type}}"></input>
+        </van-cell>
+        <van-popup bind:close="onDialogClose" customStyle="height: 50%;" position="bottom" show="{{showDialog}}">
+            <van-picker showToolbar bind:cancel="onDialogClose" bind:confirm="onDialogConfirm" columns="{{modeColumns}}" title="模式"></van-picker>
+        </van-popup>
+        <van-field label="备注:" name="remark" placeholder="请输入备注" titleWidth="120px" value="{{remark}}"></van-field>
+        <view wx:if="{{showPort==true}}">
+            <van-field label="服务端端口:" name="port" placeholder="请输入服务端端口" titleWidth="120px" value="{{port}}"></van-field>
+        </view>
+        <view wx:if="{{showTarget==true}}">
+            <van-field label="目标 ( IP:端口 ):" name="target" placeholder="请输入目标的IP:端口或本地端口" titleWidth="120px" value="{{target}}"></van-field>
+        </view>
+        <view wx:if="{{showPassword==true}}">
+            <van-field label="唯一标识密钥:" name="password" placeholder="请输入唯一标识密钥" titleWidth="120px" value="{{password}}"></van-field>
+        </view>
+    </van-cell-group>
+    <view class="btn">
+        <van-button customStyle="width: 120px;right:30px;" formType="submit" size="normal" type="primary">确定</van-button>
+        <van-button bind:click="onPageCancel" customStyle="width: 120px;left:30px;" size="normal" type="danger">取消</van-button>
+    </view>
+</form>

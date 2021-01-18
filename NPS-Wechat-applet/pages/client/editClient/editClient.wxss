@@ -1,0 +1,21 @@
+.btn {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tip {
+    margin-left: 15px;
+    font-size: 15px;
+    color: #a9a9a9;
+}
+
+.van_cell_value {
+    text-align: left!important;
+    margin-left: 12px;
+}
+
+.van-cell-text {
+    max-width: 120px;
+}

@@ -1,0 +1,92 @@
+.van-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.van-multi-ellipsis--l2 {
+    -webkit-line-clamp: 2;
+}
+
+.van-multi-ellipsis--l2,.van-multi-ellipsis--l3 {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+}
+
+.van-multi-ellipsis--l3 {
+    -webkit-line-clamp: 3;
+}
+
+.van-clearfix:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.van-hairline,.van-hairline--bottom,.van-hairline--left,.van-hairline--right,.van-hairline--surround,.van-hairline--top,.van-hairline--top-bottom {
+    position: relative;
+}
+
+.van-hairline--bottom:after,.van-hairline--left:after,.van-hairline--right:after,.van-hairline--surround:after,.van-hairline--top-bottom:after,.van-hairline--top:after,.van-hairline:after {
+    position: absolute;
+    box-sizing: border-box;
+    transform-origin: center;
+    content: " ";
+    pointer-events: none;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    border: 0 solid #ebedf0;
+    transform: scale(.5);
+}
+
+.van-hairline--top:after {
+    border-top-width: 1px;
+}
+
+.van-hairline--left:after {
+    border-left-width: 1px;
+}
+
+.van-hairline--right:after {
+    border-right-width: 1px;
+}
+
+.van-hairline--bottom:after {
+    border-bottom-width: 1px;
+}
+
+.van-hairline--top-bottom:after {
+    border-width: 1px 0;
+}
+
+.van-hairline--surround:after {
+    border-width: 1px;
+}
+
+.van-index-anchor {
+    padding: 0 16px;
+    padding: var(--index-anchor-padding,0 16px);
+    color: #323233;
+    color: var(--index-anchor-text-color,#323233);
+    font-weight: 500;
+    font-weight: var(--index-anchor-font-weight,500);
+    font-size: 14px;
+    font-size: var(--index-anchor-font-size,14px);
+    line-height: 32px;
+    line-height: var(--index-anchor-line-height,32px);
+    background-color: initial;
+    background-color: var(--index-anchor-background-color,transparent);
+}
+
+.van-index-anchor--active {
+    right: 0;
+    left: 0;
+    color: #07c160;
+    color: var(--index-anchor-active-text-color,#07c160);
+    background-color: #fff;
+    background-color: var(--index-anchor-active-background-color,#fff);
+}

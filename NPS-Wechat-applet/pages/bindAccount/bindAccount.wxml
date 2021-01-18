@@ -1,0 +1,12 @@
+<view class="detail_page_title">绑定账号</view>
+<van-toast id="van"></van-toast>
+<form catchsubmit="formSubmit">
+    <van-cell-group>
+        <van-field bind:change="username_input" label="账号:" name="username" placeholder="请输入账号" titleWidth="120px" value="{{username}}"></van-field>
+        <van-field bind:change="password_input" label="密码:" name="password" placeholder="请输入密码" titleWidth="120px" value="{{password}}"></van-field>
+    </van-cell-group>
+    <view class="btn">
+        <van-button customStyle="width: 120px;right:30px;" formType="submit" size="normal" type="primary">确定</van-button>
+        <van-button bind:click="onPageCancel" customStyle="width: 120px;left:30px;" size="normal" type="danger">取消</van-button>
+    </view>
+</form>

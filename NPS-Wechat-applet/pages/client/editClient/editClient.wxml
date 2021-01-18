@@ -1,0 +1,32 @@
+<view class="detail_page_title">编辑账号</view>
+<van-toast id="van"></van-toast>
+<form catchsubmit="formSubmit">
+    <van-cell-group>
+        <van-field readonly label="ID:" name="id" placeholder="请输入ID" titleWidth="120px" value="{{clientData.Id}}"></van-field>
+        <van-field  label="备注:" name="remark" placeholder="请输入备注" titleWidth="120px" value="{{clientData.Remark}}"></van-field>
+        <!-- <van-field readonly label="最大通道数:" name="max_tunnel" placeholder="请输入通道数" titleWidth="120px" value="{{clientData.MaxTunnelNum}}"></van-field> -->
+        <van-field label="Web登陆用户名:" name="web_username" placeholder="请输入Web登陆用户名" titleWidth="120px" value="{{clientData.WebUserName}}"></van-field>
+        <van-field label="Web登陆密码:" name="web_password" placeholder="请输入Web登陆密码" titleWidth="120px" value="{{clientData.WebPassword}}"></van-field>
+        <van-field label="唯一验证密钥:" name="vkey" placeholder="请输入唯一验证密钥" titleWidth="120px" value=" {{clientData.VerifyKey}}" ></van-field>
+        <!-- <van-field readonly label="唯一验证密钥:" name="vkey" placeholder="请输入唯一验证密钥" titleWidth="120px" value="{{clientData.VerifyKey}}" ></van-field> -->
+        <view class="tip">Basic认证仅限Socks5、Web、HTTP转发代理</view>
+        <van-field label="Basic认证用户名:" name="u" placeholder="请输入Basic认证用户名" titleWidth="120px" value="{{clientData.Cnf.U}}"></van-field>
+        <van-field label="Basic认证密码:" name="p" placeholder="请输入Basic认证密码" titleWidth="120px" value="{{clientData.Cnf.P}}"></van-field>
+        <van-cell clickable bind:click="config_conn_allow_input" placeholder="" title="允许配置文件连接:" titleWidth="120px" value="{{config_conn_allowStr}}" valueClass="van_cell_value">
+            <input disabled="true" hidden="true" id="config_conn_allow" name="config_conn_allow" type="text" value="{{config_conn_allow}}"></input>
+        </van-cell>
+        <van-cell clickable bind:click="compress_input" placeholder="" title="压缩:" titleWidth="120px" value="{{compressStr}}" valueClass="van_cell_value">
+            <input disabled="true" hidden="true" id="compress" name="compress" type="text" value="{{compress}}"></input>
+        </van-cell>
+        <van-cell clickable bind:click="crypt_input" placeholder="" title="加密:" titleWidth="120px" value="{{cryptStr}}" valueClass="van_cell_value">
+            <input disabled="true" hidden="true" id="crypt" name="crypt" type="text" value="{{crypt}}"></input>
+        </van-cell>
+    </van-cell-group>
+    <view class="btn">
+        <van-button customStyle="width: 120px;right:30px;" formType="submit" size="normal" type="primary">确定</van-button>
+        <van-button bind:click="onPageCancel" customStyle="width: 120px;left:30px;" size="normal" type="danger">取消</van-button>
+    </view>
+</form>
+<van-popup bind:close="onDialogClose" customStyle="height: 50%;" position="bottom" show="{{showDialog}}">
+    <van-picker showToolbar bind:cancel="onDialogClose" bind:confirm="onDialogConfirm" columns="{{option}}" title="请选择是否{{mode}}"></van-picker>
+</van-popup>

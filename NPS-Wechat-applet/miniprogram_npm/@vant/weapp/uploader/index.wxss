@@ -1,0 +1,218 @@
+.van-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.van-multi-ellipsis--l2 {
+    -webkit-line-clamp: 2;
+}
+
+.van-multi-ellipsis--l2,.van-multi-ellipsis--l3 {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+}
+
+.van-multi-ellipsis--l3 {
+    -webkit-line-clamp: 3;
+}
+
+.van-clearfix:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.van-hairline,.van-hairline--bottom,.van-hairline--left,.van-hairline--right,.van-hairline--surround,.van-hairline--top,.van-hairline--top-bottom {
+    position: relative;
+}
+
+.van-hairline--bottom:after,.van-hairline--left:after,.van-hairline--right:after,.van-hairline--surround:after,.van-hairline--top-bottom:after,.van-hairline--top:after,.van-hairline:after {
+    position: absolute;
+    box-sizing: border-box;
+    transform-origin: center;
+    content: " ";
+    pointer-events: none;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    border: 0 solid #ebedf0;
+    transform: scale(.5);
+}
+
+.van-hairline--top:after {
+    border-top-width: 1px;
+}
+
+.van-hairline--left:after {
+    border-left-width: 1px;
+}
+
+.van-hairline--right:after {
+    border-right-width: 1px;
+}
+
+.van-hairline--bottom:after {
+    border-bottom-width: 1px;
+}
+
+.van-hairline--top-bottom:after {
+    border-width: 1px 0;
+}
+
+.van-hairline--surround:after {
+    border-width: 1px;
+}
+
+.van-uploader {
+    position: relative;
+    display: inline-block;
+}
+
+.van-uploader__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.van-uploader__slot:empty {
+    display: none;
+}
+
+.van-uploader__slot:not(:empty)+.van-uploader__upload {
+    display: none!important;
+}
+
+.van-uploader__upload {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 80px;
+    height: 80px;
+    margin: 0 8px 8px 0;
+    background-color: #f7f8fa;
+}
+
+.van-uploader__upload:active {
+    background-color: #f2f3f5;
+}
+
+.van-uploader__upload-icon {
+    color: #dcdee0;
+    font-size: 24px;
+}
+
+.van-uploader__upload-text {
+    margin-top: 8px;
+    color: #969799;
+    font-size: 12px;
+}
+
+.van-uploader__upload--disabled {
+    opacity: .5;
+    opacity: var(--uploader-disabled-opacity,.5);
+}
+
+.van-uploader__preview {
+    position: relative;
+    margin: 0 8px 8px 0;
+    cursor: pointer;
+}
+
+.van-uploader__preview-image {
+    display: block;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.van-uploader__preview-delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 14px;
+    height: 14px;
+    padding: 0 0 8px 8px;
+}
+
+.van-uploader__preview-delete:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 14px;
+    height: 14px;
+    background-color: rgba(0,0,0,.7);
+    border-radius: 0 0 0 12px;
+    content: "";
+}
+
+.van-uploader__preview-delete-icon {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    z-index: 1;
+    color: #fff;
+    font-size: 16px;
+    transform: scale(.5);
+}
+
+.van-uploader__file {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: #f7f8fa;
+}
+
+.van-uploader__file-icon {
+    color: #646566;
+    font-size: 20px;
+}
+
+.van-uploader__file-name {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 8px;
+    padding: 0 4px;
+    color: #646566;
+    font-size: 12px;
+    text-align: center;
+}
+
+.van-uploader__mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: rgba(50,50,51,.88);
+}
+
+.van-uploader__mask-icon {
+    font-size: 22px;
+}
+
+.van-uploader__mask-message {
+    margin-top: 6px;
+    padding: 0 4px;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.van-uploader__loading {
+    width: 22px;
+    height: 22px;
+    color: #fff!important;
+}
