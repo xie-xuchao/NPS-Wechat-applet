@@ -1,0 +1,53 @@
+[is="miniprogram_npm/@vant/weapp/goods-action-button/index"] {
+    flex: 1;
+}
+
+[is="miniprogram_npm/@vant/weapp/icon/index"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+[is="miniprogram_npm/@vant/weapp/loading/index"] {
+    font-size: 0;
+    line-height: 1;
+}
+
+[is="miniprogram_npm/@vant/weapp/tab/index"] {
+    flex-shrink: 0;
+    width: 100%;
+}
+
+[is="miniprogram_npm/@vant/weapp/tabbar-item/index"] {
+    flex: 1;
+}
+
+page {
+    background: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.page_title {
+    font-size: 20px;
+    height: 40px;
+}
+
+.page_content,.page_title {
+    padding-left: 20px;
+    color: rgba(69,90,100,.6);
+}
+
+.page_content {
+    font-size: 15px;
+    padding-top: 15px;
+    height: 30px;
+}
+
+.detail_page_title {
+    font-size: 20px;
+    color: rgba(69,90,100,.6);
+    height: 40px;
+    text-align: center;
+}

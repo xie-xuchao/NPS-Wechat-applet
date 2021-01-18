@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/changeServer/changeServer",
+    "pages/start/start",
+    "pages/client/clientList/clientList",
+    "pages/setting/setting",
+    "pages/bindAccount/bindAccount",
+    "pages/client/addClient/addClient",
+    "pages/tunnel/addTunnel/addTunnel",
+    "pages/tunnel/tunnelList/tunnelList",
+    "pages/tunnel/editTunnel/editTunnel",
+    "pages/client/editClient/editClient"
+   
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "NPS管理中心",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/changeServer/changeServer",
+        "text": "切换",
+        "iconPath": "images/changeServer.png",
+        "selectedIconPath": "images/changeServer_active.png"
+      },
+      {
+        "pagePath": "pages/client/clientList/clientList",
+        "text": "管理",
+        "iconPath": "images/icon_device.png",
+        "selectedIconPath": "images/icon_device_active.png"
+      },
+      {
+        "pagePath": "pages/setting/setting",
+        "text": "设置",
+        "iconPath": "images/icon_set.png",
+        "selectedIconPath": "images/icon_set_active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap25.json"
+}
